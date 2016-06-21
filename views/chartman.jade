@@ -1,0 +1,130 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Material Design for Bootstrap
+    // Material Design Icons
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Bootstrap core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='css/mdb.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.default-color
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.waves-effect.waves-light(href='#') Brand
+          #bs-example-navbar-collapse-2.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a.waves-effect.waves-light(href='#')
+                  | Link 
+                  span.sr-only (current)
+              li
+                a.waves-effect.waves-light(href='#') Link
+              li.dropdown
+                a.dropdown-toggle.waves-effect.waves-light(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+                  li.divider
+                  li
+                    a(href='#') One more separated link
+            form.navbar-form.navbar-right(role='search')
+              .form-group.waves-effect.waves-light
+                input.form-control(type='text', placeholder='Search')
+      // /.Navigation
+      main
+        // Main Container
+        .container
+          div
+            .col-md-8
+              canvas#myChart
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-content
+                  h5 Data insights
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis architecto. Ullam voluptatum, facere nihil quidem.
+              // Image Card
+          // FIRST ROW END
+        .text-right
+          h3  
+        .container
+          .row
+            .col-md-8
+              canvas#myChart2
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-content
+                  h5 Data insights
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis architecto. Ullam voluptatum, facere nihil quidem.
+              // Image Card
+          // FIRST ROW END
+        // ./container
+    // SCRIPTS
+    // JQuery
+    script(type='text/javascript', src='js/jquery.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // Material Design Bootstrap
+    script(type='text/javascript', src='js/mdb.js')
+    script(type='text/javascript').
+      var listdata = !{JSON.stringify(ed)};
+      var numberdata = !{JSON.stringify(nd)};
+      var testdata = new Array();
+      testdata.push(listdata[0]);
+      testdata.push(listdata[1]);
+      testdata.push(listdata[2]);
+      testdata.push(listdata[3]);
+      testdata.push(listdata[4]);
+      testdata.push(listdata[5]);
+      testdata.push(listdata[6]);
+      testdata.push(listdata[7]);
+      console.log(testdata);
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var ctx2 = document.getElementById("myChart2").getContext('2d');
+      var option = {
+      responsive: true,
+      };
+      var data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+      {
+      label: "My First dataset",
+      fillColor: "rgba(220,220,220,0.2)",
+      strokeColor: "rgba(220,220,220,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data: testdata
+      }
+      ]
+      };
+      var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+      var myLineChart2 = new Chart(ctx2).Line(data, option); //'Line' defines type of the chart.

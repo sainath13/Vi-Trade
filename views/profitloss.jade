@@ -1,0 +1,209 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Material Design for Bootstrap
+    // Material Design Icons
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Bootstrap core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='css/mdb.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.light-green
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.waves-effect.waves-light(href='/') ViTrade
+          #bs-example-navbar-collapse-2.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a.waves-effect.waves-light(href='/twitter')
+                  | Twitter Feeds
+                  span.sr-only (current)
+      // /.Navigation
+      main
+        // Main Container
+        .container
+          .row
+            .col-md-8
+              canvas#myChart
+            .col-md-4
+              // Image Card
+              .card.hoverable.grey.lighten-2  
+                .card-content
+                  h5 Trade statistics
+                  p
+                    | Total Trades : 33
+                  p
+                    | Average Win : 7.54%                    
+                  p
+                    | Average loss : -3.11%
+                  P 
+                    | Net Profit : 91.593%
+                  p
+                    | Sharpe Ratio : 0.926                    
+
+          .row
+            //- .col-md-8
+            //-   canvas#myChart
+            .col-md-4
+              // Image Card
+              .card.hoverable.green.lighten-1
+                .card-content
+                  h5 Max profit
+                  p
+                    | You have max profit of 19653.26$ in this stock in 7 years.                    
+            .col-md-4
+              // Image Card
+              .card.hoverable.red.lighten-1
+                .card-content
+                  h5 Max loss
+                  p
+                    | You have max loss of 8729.22$ in this stock in 7 years
+            .col-md-4
+              // Image Card
+              .card.hoverable.blue.lighten-2
+                .card-content
+                  h5 Gained or lost
+                  p
+                    | You have gained 87179.076$ in this stock in 7 years                    
+              // Image Card
+          // FIRST ROW END
+        .text-right
+          h3  
+        //- .container
+          .row
+            .col-md-8
+              canvas#myChart2
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-content
+                  h5 Data insights
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis architecto. Ullam voluptatum, facere nihil quidem.
+              // Image Card
+          // FIRST ROW END
+        // ./container
+    // SCRIPTS
+    // JQuery
+    script(type='text/javascript', src='js/jquery.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // Material Design Bootstrap
+    script(type='text/javascript', src='js/mdb.js')
+    script(type='text/javascript').
+      var listdata = !{JSON.stringify(ed)};
+      var numberdata = !{JSON.stringify(nd)};
+      var zerodata = !{JSON.stringify(zd)};
+      var testdata = new Array();
+      //- testdata.push(listdata[0]);
+      //- testdata.push(listdata[1]);
+      //- testdata.push(listdata[2]);
+      //- testdata.push(listdata[3]);
+      //- testdata.push(listdata[4]);
+      //- testdata.push(listdata[5]);
+      //- testdata.push(listdata[6]);
+      //- testdata.push(listdata[7]);
+      console.log(testdata);
+      var ctx = document.getElementById("myChart").getContext('2d');
+      //- var ctx2 = document.getElementById("myChart2").getContext('2d');
+      var option = {
+      responsive: true,
+      };
+      var data = {
+      labels: numberdata,
+      datasets: [
+      {
+      label: "My First dataset",
+      fillColor: "rgba(0,0,0,0.2)",
+      strokeColor: "rgba(0,0,0,1)",
+      pointColor: "rgba(0,0,0,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data: listdata
+      }     
+      ]
+      };
+      var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+      //- var myLineChart2 = new Chart(ctx2).Line(data, option); //'Line' defines type of the chart.
+      //- var max_of_array = Math.max.apply(Math, listdata);
+      console.log(Math.max.apply(Math,listdata));
+      console.log(Math.min.apply(Math,listdata));
+
+      var Totalsum = 0;
+      console.log(typeof listdata[0]);
+      //- var j = listdata[0] + listdata[1];
+      //- console.log(j)
+      //- 
+      for (i = 0; i < listdata.length; i++) { 
+          Totalsum += listdata[i];
+      }
+      console.log(Totalsum);
+
+        //- Chart.types.Line.extend({
+        //-     name: "LineWithLine",
+        //-     draw: function () {
+        //-         Chart.types.Line.prototype.draw.apply(this, arguments);
+
+        //-         var lines = this.options.limitLines;
+
+        //-         for (var i = lines.length; --i >= 0;) {
+
+        //-             var xStart = Math.round(this.scale.xScalePaddingLeft);
+        //-             var linePositionY = this.scale.calculateY(lines[i].value);
+
+        //-             this.chart.ctx.fillStyle = lines[i].color ? lines[i].color : this.scale.textColor;
+        //-             this.chart.ctx.font = this.scale.font;
+        //-             this.chart.ctx.textAlign = "left";
+        //-             this.chart.ctx.textBaseline = "top";
+
+        //-             if (this.scale.showLabels && lines[i].label) {
+        //-                 this.chart.ctx.fillText(lines[i].label, xStart + 5, linePositionY);
+        //-             }
+
+        //-             this.chart.ctx.lineWidth = this.scale.gridLineWidth;
+        //-             this.chart.ctx.strokeStyle = lines[i].color ? lines[i].color : this.scale.gridLineColor;
+
+        //-             if (this.scale.showHorizontalLines) {
+        //-                 this.chart.ctx.beginPath();
+        //-                 this.chart.ctx.moveTo(xStart, linePositionY);
+        //-                 this.chart.ctx.lineTo(this.scale.width, linePositionY);
+        //-                 this.chart.ctx.stroke();
+        //-                 this.chart.ctx.closePath();
+        //-             }
+
+        //-             this.chart.ctx.lineWidth = this.lineWidth;
+        //-             this.chart.ctx.strokeStyle = this.lineColor;
+        //-             this.chart.ctx.beginPath();
+        //-             this.chart.ctx.moveTo(xStart - 5, linePositionY);
+        //-             this.chart.ctx.lineTo(xStart, linePositionY);
+        //-             this.chart.ctx.stroke();
+        //-             this.chart.ctx.closePath();
+        //-         }
+        //-     }
+        //- });
+
+        //- new Chart(ctx).LineWithLine(data, {
+        //-     datasetFill : false,
+        //-     limitLines: [
+
+        //-         {
+        //-             value: 7,
+        //-             color: 'rgba(255, 0, 0, 1)'
+        //-         }
+        //-     ],
+        //- });

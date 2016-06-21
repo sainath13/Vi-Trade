@@ -1,0 +1,198 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title ViTrade
+    // Material Design Icons
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Bootstrap core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='css/mdb.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.light-green
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.waves-effect.waves-light(href='/') ViTrade
+          #bs-example-navbar-collapse-2.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a.waves-effect.waves-light(href='/twitter')
+                  | Twitter Feeds
+                  span.sr-only (current)
+              //- li
+                a.waves-effect.waves-light(href='#') Link
+              //- li.dropdown
+                a.dropdown-toggle.waves-effect.waves-light(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='/orders') Orders
+                  li
+                    a(href='/stats') Stats
+                  li
+                    a(href='/profitloss') Profit loss
+                  li.divider
+                  //- li
+                    a(href='#') Separated link
+                  //- li.divider
+                  //- li
+                    a(href='#') One more separated link
+            //- form.navbar-form.navbar-right(role='search')
+              .form-group.waves-effect.waves-light
+                input.form-control(type='text', placeholder='Search')
+      // /.Navigation
+      main
+        // Main Container
+        .container
+          // Second Row
+          .row
+            // First Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/apple.jpg', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 Apple Inc.
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.green
+                      i.material-icons arrow
+                    | 101.50 USD (UP) 0.75
+                // Buttons
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='/stats') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+                // /.Buttons
+              // Image Card
+            // /.First Column
+            // Second Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/ms.jpg', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 Microsoft Inc.
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.red
+                      i.material-icons arrow
+                    |52.35 USD (DW) 0.60
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='/msstats') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+                // /.Buttons
+              // Image Card
+            // /.Second Column
+            // Third Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/br.jpeg', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 Barclays PLC
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.green
+                      i.material-icons arrow
+                    |9.52 USD (UP) 0.30
+                // Buttons
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='#') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+          .row
+            // First Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/yahoo.jpg', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 Yahoo Inc.
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.red
+                      i.material-icons arrow
+                    |32.38 USD (DW) 0.03              
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='#') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+                // /.Buttons
+              // Image Card
+            // /.First Column
+            // Second Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/google.jpg', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 Alphabet Inc C.
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.red
+                      i.material-icons arrow
+                    |712.42 USD (DW) 6.43              
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='#') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+                // /.Buttons
+              // Image Card
+            // /.Second Column
+            // Third Column
+            .col-md-4
+              // Image Card
+              .card.hoverable
+                .card-image
+                  .view.overlay.hm-white-slight.z-depth-1
+                    img.img-responsive(src='img/ba.png', alt='')
+                    a(href='#')
+                      .mask.waves-effect
+                .card-content
+                  h5 British Airways 
+                  p 
+                    a.btn-floating.btn-small.waves-effect.waves-light.green
+                      i.material-icons arrow
+                    |275 USD (UP) 0.01              
+                // Buttons
+                .card-btn.text-center
+                  a.btn.btn-primary.btn-md.waves-effect.waves-light(href='#') Read more
+                  //- a.btn.btn-default.btn-md.waves-effect.waves-light(href='#') Buy now
+                // /.Buttons
+              // Image Card
+            // /.Third Column
+          // /.Second Row
+        // /.Main Container
+    // SCRIPTS
+    // JQuery
+    script(type='text/javascript', src='js/jquery.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // Material Design Bootstrap
+    script(type='text/javascript', src='js/mdb.js')

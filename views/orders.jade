@@ -1,0 +1,94 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Material Design for Bootstrap
+    // Material Design Icons
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Bootstrap core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='css/mdb.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.light-green
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.waves-effect.waves-light(href='/') ViTrade
+          #bs-example-navbar-collapse-2.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a.waves-effect.waves-light(href='/twitter')
+                  | Twitter feed
+                  span.sr-only (current)
+      // /.Navigation
+      main
+        // Main Container
+        #containerId.container
+          // <div class="highlight">
+          // <div class= "row">
+          .panel.panel-default
+            .panel-body
+              p.text-center.normal-400
+                //- a.btn-floating.btn-small.waves-effect.waves-light.green
+                  i.material-icons arrow_back
+                |               Orders of 
+                strong AAPL Inc.
+                |  in last 7 years
+          //- .panel.panel-default
+            .panel-body
+              p.text-center.normal-400
+                a.btn-floating.btn-small.waves-effect.waves-light.blue
+                  i.material-icons arrow_forward
+                |                 sold 
+                strong 3000
+                |  stalks for 
+                strong 3000$
+                |  on date 2013.5.6
+          //
+            <table class="table table-hover">
+            <thead>
+            <tr>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            </table>
+    // SCRIPTS
+    // JQuery
+    script(type='text/javascript', src='js/jquery.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // Material Design Bootstrap
+    script(type='text/javascript', src='js/mdb.js')
+    script(type="text/javascript").
+      var orderdata = !{JSON.stringify(od)}
+      $.each(orderdata,function(key,object){
+        console.log(key);
+        console.log(object);
+        var datatoload;
+        if(object.quantity > 0){
+        datatoload = '<div class="panel panel-default"><div class="panel-body"><p class="text-center normal-400"><a class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>bought <strong>'+object.quantity+'</strong> stocks at price<strong>'+object.price+'</strong> on date '+object.time+'</p></div></div>'
+        }
+        else{
+        object.quantity = -object.quantity;
+        datatoload = '<div class="panel panel-default"><div class="panel-body"><p class="text-center normal-400"><a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">arrow_forward</i></a>  sold <strong>'+object.quantity+'</strong> stocks at price <strong>'+object.price+'</strong> on date '+object.time+'</p></div></div>'
+        }
+        $("#containerId").append(datatoload);
+      });
+
+

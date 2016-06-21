@@ -1,0 +1,165 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Material Design for Bootstrap
+    // Material Design Icons
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Bootstrap core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='css/mdb.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+  body
+    header
+      // Navigation
+      nav.navbar.light-green
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.waves-effect.waves-light(href='/') ViTrade
+          #bs-example-navbar-collapse-2.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a.waves-effect.waves-light(href='/twitter')
+                  | Twitter feed
+                  span.sr-only (current)
+      // /.Navigation
+      main
+        // Main Container
+        .container
+          // <div class="highlight">
+          // <div class= "row">
+          //
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <p class="text-center normal-400">
+            <a class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>
+            bought <strong>3000</strong> stalks for <strong>3000$</strong> on date 2013.5.6
+            </p>
+            </div>
+            </div>
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <p class="text-center normal-400">
+            <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">arrow_forward</i></a>
+            sold <strong>3000</strong> stalks for <strong>3000$</strong> on date 2013.5.6
+            </p>
+            </div>
+            </div>
+          .row
+            .col-md-8
+              .collection.z-depth-2
+                a.collection-item.light-green
+                  h4.white-text Statistics AAPL
+                //
+                  <a href="#!" class="collection-item">Item 2</a>
+                  <a href="#!" class="collection-item">Item 3</a>
+                  <a href="#!" class="collection-item">Item 4</a>
+                  <a href="#!" class="collection-item">Item 5</a>
+                  <a href="#!" class="collection-item">Item 6</a>
+                  <a href="#!" class="collection-item">Item 7</a>
+                  <div class="collection">
+                p.collection-item
+                  | Total Trades
+                  span.badge-md #{sd["Total Trades"]}
+                p.collection-item
+                  | Average Win
+                  span.badge-md #{sd["Average Win"]}
+                p.collection-item
+                  | Average Loss
+                  span.badge-md #{sd["Average Loss"]}
+                p.collection-item
+                  | Compounding Annual Return
+                  span.badge-md #{sd["Compounding Annual Return"]}
+                p.collection-item
+                  | Drawdown
+                  span.badge-md #{sd["Drawdown"]}
+                p.collection-item
+                  | Expectancy
+                  span.badge-md #{sd["Expectancy"]}
+                p.collection-item
+                  | Net Profit
+                  span.badge-md #{sd["Net Profit"]}
+                p.collection-item
+                  | Sharpe Ratio
+                  span.badge-md #{sd["Sharpe Ratio"]}
+                p.collection-item
+                  | Loss Rate
+                  span.badge-md #{sd["Loss Rate"]}
+                p.collection-item
+                  | Win Rate
+                  span.badge-md #{sd["Win Rate"]}
+                p.collection-item
+                  | Profit-Loss Ratio
+                  span.badge-md #{sd["Profit-Loss Ratio"]}
+                p.collection-item
+                  | Alpha
+                  span.badge-md #{sd["Alpha"]}
+                p.collection-item
+                  | Beta
+                  span.badge-md #{sd["Beta"]}
+                p.collection-item
+                  | Annual Standard Deviation
+                  span.badge-md #{sd["Annual Standard Deviation"]}
+                p.collection-item
+                  | Annual Variance
+                  span.badge-md #{sd["Annual Variance"]}
+                p.collection-item
+                  | Information Ratio
+                  span.badge-md #{sd["Information Ratio"]}
+                p.collection-item
+                  | Tracking Error
+                  span.badge-md #{sd["Tracking Error"]}
+                p.collection-item
+                  | Treynor Ratio
+                  span.badge-md #{sd["Treynor Ratio"]}
+                p.collection-item
+                  | Total Fees
+                  span.badge-md #{sd["Total Fees"]}
+            .col-md-4
+              .card.blue-grey
+                .card-content.white-text
+                  span.card-title Profit Loss
+                  p
+                    |This sections shows how much you have gained / lost in last 7 years
+                .card-action
+                  a(href='/msprofitloss') #profitloss
+            .col-md-4
+              .card.blue-grey
+                .card-content.white-text
+                  span.card-title Orders
+                  p
+                    |This sections shows all the orders we have made in last 7 years of this stock
+                .card-action
+                  a(href='/msorders') #orders
+                  //- a(href='#') This is a link
+
+                // </div>
+          //
+            <table class="table table-hover">
+            <thead>
+            <tr>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            </table>
+    // SCRIPTS
+    // JQuery
+    script(type='text/javascript', src='js/jquery.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // Material Design Bootstrap
+    script(type='text/javascript', src='js/mdb.js')
